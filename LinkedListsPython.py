@@ -50,6 +50,12 @@ class LinkedList:
 
     def deleteData(self, data):
         temphead = self.head
+
+        # check case if the head itself if the node to
+        # be deleted
+        if temphead.data == data:
+            self.head = temphead.next
+
         while temphead.next != None:
             #print("Data is ", temphead.next.data)
             if temphead.next.data == data:
@@ -76,7 +82,7 @@ def main():
         llist.insertAtFront(first)
         llist.insertAtPositionN(nth, 4)
         llist.printNodes()
-        llist.deleteData(67)
+        llist.deleteData(49)
         llist.printNodes()
 
 if __name__== "__main__":
