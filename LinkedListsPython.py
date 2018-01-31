@@ -63,6 +63,22 @@ class LinkedList:
                 break
             temphead = temphead.next
 
+    def getNthNode(self, n):
+        temphead = self.head
+        index = 0
+        firstPointer = temphead
+        while index < n:
+            if temphead.next == None:
+                print("The value {0} is larger than the length of the list")
+                exit()
+            index += 1
+            temphead = temphead.next
+
+        while temphead.next != None:
+            firstPointer = firstPointer.next
+            temphead = temphead.next
+        print("The value of the nth Node from the end is {0}".format(firstPointer.data))
+
 
 def main():
         llist = LinkedList()
@@ -84,6 +100,7 @@ def main():
         llist.printNodes()
         llist.deleteData(49)
         llist.printNodes()
+        llist.getNthNode(2)
 
 if __name__== "__main__":
     main()
