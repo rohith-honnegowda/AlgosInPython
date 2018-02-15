@@ -79,6 +79,20 @@ class LinkedList:
             temphead = temphead.next
         print("The value of the nth Node from the end is {0}".format(firstPointer.data))
 
+    def reverseLinkedList(self):
+
+        if self.head == None or self.head.next == None:
+            return
+
+        newhead = None
+        while self.head != None:
+            temp = self.head
+            self.head = temp.next
+            temp.next = newhead
+            newhead = temp
+        self.head = newhead
+
+
 
 def main():
         llist = LinkedList()
@@ -95,12 +109,13 @@ def main():
         fourth.next = fifth
         first = Node(67)
         nth = Node(894)
-        llist.insertAtFront(first)
-        llist.insertAtPositionN(nth, 4)
+        #llist.insertAtFront(first)
+        #llist.insertAtPositionN(nth, 4)
         llist.printNodes()
-        llist.deleteData(49)
+        #llist.deleteData(49)
+        llist.reverseLinkedList()
         llist.printNodes()
-        llist.getNthNode(2)
+        #llist.getNthNode(2)
 
 if __name__== "__main__":
     main()
